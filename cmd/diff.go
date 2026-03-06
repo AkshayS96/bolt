@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"bolt/internal/utils"
+	"github.com/AkshayS96/bolt/internal/utils"
 
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"

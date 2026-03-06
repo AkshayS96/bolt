@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"bolt/internal/utils"
+	"github.com/AkshayS96/bolt/internal/utils"
 
 	"github.com/google/uuid"
 	gonanoid "github.com/jaevor/go-nanoid"

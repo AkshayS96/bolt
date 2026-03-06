@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"bolt/internal/utils"
+	"github.com/AkshayS96/bolt/internal/utils"
 
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/spf13/cobra"

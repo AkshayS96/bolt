@@ -8,7 +8,7 @@ import (
 	"io"
 	"os"
 
-	"bolt/internal/utils"
+	"github.com/AkshayS96/bolt/internal/utils"
 
 	"github.com/spf13/cobra"
 )

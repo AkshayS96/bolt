@@ -11,7 +11,7 @@ UUIDs, JSON formatting, JWT decoding, hashing, encoding, HTTP requests, timestam
 ### Go Install (Recommended)
 
 ```bash
-go install github.com/akshaysolanki/bolt@latest
+go install github.com/AkshayS96/bolt@latest
 ```
 
 ### Homebrew (macOS / Linux)

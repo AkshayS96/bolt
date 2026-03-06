@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"bolt/internal/utils"
+	"github.com/AkshayS96/bolt/internal/utils"
 
 	"github.com/spf13/cobra"
 	"github.com/tidwall/gjson"

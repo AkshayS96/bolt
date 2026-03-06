@@ -1,6 +1,6 @@
 package main
 
-import "bolt/cmd"
+import "github.com/AkshayS96/bolt/cmd"
 
 func main() {
 	cmd.Execute()

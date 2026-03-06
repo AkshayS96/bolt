@@ -1,4 +1,4 @@
-module bolt
+module github.com/AkshayS96/bolt
 
 go 1.23.1
 
