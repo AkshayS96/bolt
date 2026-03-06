@@ -11,7 +11,7 @@ hero:
       link: /guide/installation
     - theme: alt
       text: View Commands
-      link: /guide/commands
+      link: /guide/commands/id-generators
 
 features:
   - title: 🚀 Ultra Fast

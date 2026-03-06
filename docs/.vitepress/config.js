@@ -21,15 +21,15 @@ export default defineConfig({
       {
         text: 'Commands',
         items: [
-          { text: '🔑 ID Generators', link: '/guide/commands#id-generators' },
-          { text: '📦 Data & Encoding', link: '/guide/commands#data-encoding' },
-          { text: '🔒 Security', link: '/guide/commands#security' },
-          { text: '⏰ Time & Date', link: '/guide/commands#time-date' },
-          { text: '🌐 HTTP & Network', link: '/guide/commands#http-network' },
-          { text: '✏️ Text & Strings', link: '/guide/commands#text-strings' },
-          { text: '📁 Files & System', link: '/guide/commands#files-system' },
-          { text: '🖼️ Image Processing', link: '/guide/commands#image-processing' },
-          { text: '🧰 Utilities', link: '/guide/commands#utilities' }
+          { text: '🔑 ID Generators', link: '/guide/commands/id-generators' },
+          { text: '📦 Data & Encoding', link: '/guide/commands/data-encoding' },
+          { text: '🔒 Security', link: '/guide/commands/security' },
+          { text: '⏰ Time & Date', link: '/guide/commands/time-date' },
+          { text: '🌐 HTTP & Network', link: '/guide/commands/http-network' },
+          { text: '✏️ Text & Strings', link: '/guide/commands/text-strings' },
+          { text: '📁 Files & System', link: '/guide/commands/files-system' },
+          { text: '🖼️ Image Processing', link: '/guide/commands/image-processing' },
+          { text: '🧰 Utilities', link: '/guide/commands/utilities' }
         ]
       }
     ],
