@@ -4,7 +4,6 @@ export default defineConfig({
   title: "Bolt",
   description: "A fast, single-binary developer Swiss Army knife CLI.",
   base: '/bolt/',
-  cleanUrls: true,
   themeConfig: {
     logo: '⚡',
     nav: [
