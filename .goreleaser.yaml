@@ -1,0 +1,56 @@
+version: 2
+
+project_name: bolt
+
+builds:
+  - main: .
+    binary: bolt
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+
+archives:
+  - formats: ["tar.gz"]
+    format_overrides:
+      - goos: windows
+        formats: ["zip"]
+    name_template: "bolt_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+nfpms:
+  - package_name: bolt
+    vendor: Akshay Solanki
+    homepage: https://github.com/AkshayS96/bolt
+    description: "Developer Swiss Army Knife CLI"
+    license: MIT
+    formats:
+      - deb
+      - rpm
+
+brews:
+  - repository:
+      owner: AkshayS96
+      name: homebrew-bolt
+    homepage: https://github.com/AkshayS96/bolt
+    description: "Developer Swiss Army Knife CLI"
+    install: |
+      bin.install "bolt"
+
+scoops:
+  - repository:
+      owner: AkshayS96
+      name: scoop-bolt
+    homepage: https://github.com/AkshayS96/bolt
+    description: "Developer Swiss Army Knife CLI"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
