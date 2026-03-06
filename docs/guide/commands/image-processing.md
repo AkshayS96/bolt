@@ -1,4 +1,5 @@
 # 🖼️ Image Processing
+
 | Command | Description |
 |---------|-------------|
 | `bolt img resize --width <w> <in> <out>` | Resize an image |

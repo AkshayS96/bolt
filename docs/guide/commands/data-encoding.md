@@ -1,4 +1,5 @@
 # 📦 Data & Encoding
+
 | Command | Description |
 |---------|-------------|
 | `bolt json format [file]` | Pretty print JSON |

@@ -1,4 +1,5 @@
 # 🔒 Security
+
 | Command | Description |
 |---------|-------------|
 | `bolt jwt decode <token>` | Decode JWT (header + payload) |

@@ -1,4 +1,5 @@
 # ✏️ Text & Strings
+
 | Command | Description |
 |---------|-------------|
 | `bolt slug <text>` | Slugify text |

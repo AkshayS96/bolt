@@ -1,4 +1,5 @@
 # 🧰 Utilities
+
 | Command | Description |
 |---------|-------------|
 | `bolt color hex2rgb <hex>` | Hex → RGB |

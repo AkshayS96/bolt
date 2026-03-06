@@ -1,4 +1,5 @@
 # ⏰ Time & Date
+
 | Command | Description |
 |---------|-------------|
 | `bolt time now` | Current time (ISO, Unix, UTC, Local) |

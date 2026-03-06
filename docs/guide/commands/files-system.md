@@ -1,4 +1,5 @@
 # 📁 Files & System
+
 | Command | Description |
 |---------|-------------|
 | `bolt file hash <path>` | SHA256 hash of file |

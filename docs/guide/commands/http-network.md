@@ -1,4 +1,5 @@
 # 🌐 HTTP & Network
+
 | Command | Description |
 |---------|-------------|
 | `bolt http get <url>` | GET request |

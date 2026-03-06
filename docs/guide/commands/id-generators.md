@@ -1,4 +1,5 @@
 # 🔑 ID Generators
+
 | Command | Description |
 |---------|-------------|
 | `bolt uuid` | Generate a UUID v4 |
