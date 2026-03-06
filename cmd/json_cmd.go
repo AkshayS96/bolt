@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"sort"
+	"strings"
 
 	"github.com/AkshayS96/bolt/internal/utils"
 
@@ -103,16 +105,14 @@ func init() {
 				return
 			}
 			var data interface{}
-			if err := json.Unmarshal([]byte(input), &data); err != nil {
+			decoder := json.NewDecoder(bytes.NewReader([]byte(input)))
+			decoder.UseNumber()
+			if err := decoder.Decode(&data); err != nil {
 				utils.PrintError("Invalid JSON: " + err.Error())
 				return
 			}
-			yamlBytes, err := yaml.Marshal(data)
-			if err != nil {
-				utils.PrintError("Failed to convert to YAML: " + err.Error())
-				return
-			}
-			fmt.Print(string(yamlBytes))
+			data = convertForYAML(data)
+			fmt.Print(toYAML(data, 0))
 		},
 	}
 
@@ -167,5 +167,103 @@ func convertYAMLToJSON(v interface{}) interface{} {
 		return val
 	default:
 		return v
+	}
+}
+
+// convertForYAML recursively converts json.Number and map types for clean YAML output
+func convertForYAML(v interface{}) interface{} {
+	switch val := v.(type) {
+	case map[string]interface{}:
+		m := make(map[string]interface{})
+		for k, v := range val {
+			m[k] = convertForYAML(v)
+		}
+		return m
+	case []interface{}:
+		for i, v := range val {
+			val[i] = convertForYAML(v)
+		}
+		return val
+	case json.Number:
+		if i, err := val.Int64(); err == nil {
+			return i
+		}
+		if f, err := val.Float64(); err == nil {
+			return f
+		}
+		return val.String()
+	default:
+		return v
+	}
+}
+
+func toYAML(v interface{}, indent int) string {
+	prefix := strings.Repeat("  ", indent)
+	switch val := v.(type) {
+	case map[string]interface{}:
+		if len(val) == 0 {
+			return "{}\n"
+		}
+		// Sort keys for consistent output
+		keys := make([]string, 0, len(val))
+		for k := range val {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		var sb strings.Builder
+		for _, k := range keys {
+			child := val[k]
+			switch child.(type) {
+			case map[string]interface{}, []interface{}:
+				sb.WriteString(fmt.Sprintf("%s%s:\n%s", prefix, k, toYAML(child, indent+1)))
+			default:
+				sb.WriteString(fmt.Sprintf("%s%s: %s\n", prefix, k, formatYAMLValue(child)))
+			}
+		}
+		return sb.String()
+	case []interface{}:
+		if len(val) == 0 {
+			return "[]\n"
+		}
+		var sb strings.Builder
+		for _, item := range val {
+			switch item.(type) {
+			case map[string]interface{}:
+				inner := toYAML(item, indent+1)
+				lines := strings.Split(strings.TrimRight(inner, "\n"), "\n")
+				for i, line := range lines {
+					if i == 0 {
+						sb.WriteString(fmt.Sprintf("%s- %s\n", prefix, strings.TrimSpace(line)))
+					} else {
+						sb.WriteString(fmt.Sprintf("%s  %s\n", prefix, strings.TrimSpace(line)))
+					}
+				}
+			default:
+				sb.WriteString(fmt.Sprintf("%s- %s\n", prefix, formatYAMLValue(item)))
+			}
+		}
+		return sb.String()
+	default:
+		return prefix + formatYAMLValue(v) + "\n"
+	}
+}
+
+func formatYAMLValue(v interface{}) string {
+	switch val := v.(type) {
+	case nil:
+		return "null"
+	case bool:
+		if val {
+			return "true"
+		}
+		return "false"
+	case string:
+		// Quote if contains special chars
+		if strings.ContainsAny(val, ":{}[]&*?|>!%#`,\n") || val == "" {
+			return fmt.Sprintf("%q", val)
+		}
+		return val
+	default:
+		return fmt.Sprintf("%v", v)
 	}
 }

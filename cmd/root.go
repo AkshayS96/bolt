@@ -65,8 +65,8 @@ func rootHelp(cmd *cobra.Command) {
 		{"⏰", "Time & Date", []string{"time"}},
 		{"🌐", "HTTP & Network", []string{"http", "dns", "ping", "ip", "port"}},
 		{"✏️ ", "Text & Strings", []string{"slug", "case", "trim", "length", "regex"}},
-		{"📁", "Files & System", []string{"file", "diff"}},
-		{"🧰", "Utilities", []string{"color", "lorem", "cron"}},
+		{"📁", "Files & System", []string{"file", "diff", "clip"}},
+		{"🧰", "Utilities", []string{"color", "lorem", "cron", "qr", "gitignore"}},
 	}
 
 	for _, g := range groups {
