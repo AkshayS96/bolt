@@ -1,9 +1,10 @@
 module github.com/AkshayS96/bolt
 
-go 1.23.1
+go 1.24.0
 
 require (
 	github.com/chzyer/readline v1.5.1
+	github.com/disintegration/imaging v1.6.2
 	github.com/fatih/color v1.18.0
 	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/google/uuid v1.6.0
@@ -11,6 +12,7 @@ require (
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/spf13/cobra v1.10.2
 	github.com/tidwall/gjson v1.18.0
+	golang.org/x/image v0.36.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 

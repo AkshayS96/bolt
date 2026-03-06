@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const version = "4.4.6"
+const version = "4.5.0"
 
 var (
 	accent = color.New(color.FgCyan, color.Bold)
@@ -66,6 +66,7 @@ func rootHelp(cmd *cobra.Command) {
 		{"🌐", "HTTP & Network", []string{"http", "dns", "ping", "ip", "port"}},
 		{"✏️ ", "Text & Strings", []string{"slug", "case", "trim", "length", "regex"}},
 		{"📁", "Files & System", []string{"file", "diff", "clip"}},
+		{"🖼️ ", "Image Processing", []string{"img"}},
 		{"🧰", "Utilities", []string{"color", "lorem", "cron", "qr", "gitignore"}},
 	}
 

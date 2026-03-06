@@ -17,27 +17,27 @@ go install github.com/AkshayS96/bolt@latest
 ### Homebrew (macOS / Linux)
 
 ```bash
-brew tap akshaysolanki/bolt
+brew tap AkshayS96/bolt
 brew install bolt
 ```
 
 ### APT (Debian / Ubuntu)
 
 ```bash
-curl -sL https://github.com/akshaysolanki/bolt/releases/latest/download/bolt_linux_amd64.deb -o bolt.deb
+curl -sL https://github.com/AkshayS96/bolt/releases/latest/download/bolt_linux_amd64.deb -o bolt.deb
 sudo dpkg -i bolt.deb
 ```
 
 ### Windows (Scoop)
 
 ```powershell
-scoop bucket add akshaysolanki https://github.com/akshaysolanki/scoop-bolt
+scoop bucket add AkshayS96 https://github.com/AkshayS96/scoop-bolt
 scoop install bolt
 ```
 
 ### Manual Download
 
-Grab the latest binary from [**Releases**](https://github.com/akshaysolanki/bolt/releases) for your platform.
+Grab the latest binary from [**Releases**](https://github.com/AkshayS96/bolt/releases) for your platform.
 
 ---
 
@@ -138,6 +138,15 @@ echo '{"a":1}' | bolt json format  # Pipe support ✓
 | `bolt file stats <path>` | File metadata |
 | `bolt diff <file1> <file2>` | Colored file diff |
 
+### 🖼️ Image Processing
+| Command | Description |
+|---------|-------------|
+| `bolt img resize --width <w> <in> <out>` | Resize an image |
+| `bolt img crop --ratio <ratio> <in> <out>` | Crop an image |
+| `bolt img info <in>` | Image metadata (size, format) |
+| `bolt img placeholder <WxH> <out>` | Generate basic placeholder |
+| `bolt img blur --sigma <s> <in> <out>` | Apply Gaussian blur |
+
 ### 🧰 Utilities
 | Command | Description |
 |---------|-------------|
@@ -165,7 +174,7 @@ cat file.txt | bolt hash sha256
 ## 🏗️ Build from Source
 
 ```bash
-git clone https://github.com/akshaysolanki/bolt.git
+git clone https://github.com/AkshayS96/bolt.git
 cd bolt
 go build -o bolt .
 ./bolt --version
